@@ -185,7 +185,7 @@ module GoogleDrive
     # Reads content from +io+ and updates the file with the content.
     def update_from_io(io, params = {})
       params = { upload_source: io, supports_all_drives: true }.merge(params)
-      @session.drive_service.update_file(id, nil, **params)
+      @session.drive_service.update_file(id, {modified: true}, **params)
       nil
     end
 
